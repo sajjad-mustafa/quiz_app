@@ -1,0 +1,61 @@
+import 'dart:async';
+import 'package:flutter/material.dart';
+import 'login_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Delay for 3 seconds then navigate to Login screen
+    Timer(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // App Logo
+            Image.asset(
+              'images/quiz_up.png', // Add your logo in assets folder
+              height: 500,
+            ),
+            const SizedBox(height: 30),
+            // App Name
+            // const Text(
+            //   'QuizUp',
+            //   style: TextStyle(
+            //     fontSize: 32,
+            //     fontWeight: FontWeight.bold,
+            //     color: Colors.blueAccent,
+            //   ),
+            // ),
+            const SizedBox(height: 10),
+            // const Text(
+            //   'Powered by Flutter + Firebase',
+            //   style: TextStyle(
+            //     fontSize: 14,
+            //     color: Colors.grey,
+            //   ),
+            // ),
+          ],
+        ),
+      ),
+    );
+  }
+}
